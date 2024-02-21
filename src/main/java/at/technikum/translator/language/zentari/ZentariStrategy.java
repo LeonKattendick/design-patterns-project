@@ -6,21 +6,26 @@ import at.technikum.translator.language.zentari.interpreter.ZentariCharacterConv
 
 public class ZentariStrategy implements TranslationStrategy {
 
-    private final LanguageConverter converter;
+    private final LanguageConverter encodeConverter;
+    private final LanguageConverter decodeconverter;
 
     public ZentariStrategy() {
-        this.converter = LanguageConverter.link(
+        this.encodeConverter = LanguageConverter.link(
+                new ZentariCharacterConverter()
+        );
+
+        this.decodeconverter = LanguageConverter.link(
                 new ZentariCharacterConverter()
         );
     }
 
     @Override
     public String encode(String message) {
-        return converter.encode(message);
+        return encodeConverter.encode(message);
     }
 
     @Override
     public String decode(String message) {
-        return converter.decode(message);
+        return decodeconverter.decode(message);
     }
 }
