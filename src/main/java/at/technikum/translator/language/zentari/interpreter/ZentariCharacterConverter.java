@@ -1,8 +1,8 @@
 package at.technikum.translator.language.zentari.interpreter;
 
-import at.technikum.translator.language.LanguageInterpreter;
+import at.technikum.translator.language.LanguageConverter;
 
-public class ZentariCharacterInterpreter extends LanguageInterpreter {
+public class ZentariCharacterConverter extends LanguageConverter {
 
     @Override
     protected String encodeCurrent(String message) {

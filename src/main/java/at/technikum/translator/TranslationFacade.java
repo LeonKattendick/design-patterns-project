@@ -1,11 +1,11 @@
 package at.technikum.translator;
 
 import at.technikum.translator.language.LanguageIdentifier;
-import at.technikum.translator.language.zentari.ZentariLanguageIdentifier;
-import at.technikum.translator.language.luminara.LuminaraLanguageIdentifier;
-import at.technikum.translator.language.zentari.ZentariStrategy;
-import at.technikum.translator.language.luminara.LuminaraStrategy;
 import at.technikum.translator.language.TranslationStrategy;
+import at.technikum.translator.language.luminara.LuminaraLanguageIdentifier;
+import at.technikum.translator.language.luminara.LuminaraStrategy;
+import at.technikum.translator.language.zentari.ZentariLanguageIdentifier;
+import at.technikum.translator.language.zentari.ZentariStrategy;
 import at.technikum.translator.util.AlienLanguage;
 
 public class TranslationFacade {
@@ -18,7 +18,6 @@ public class TranslationFacade {
     }
 
     public String decodeMessage(String message) {
-
         LanguageIdentifier identifier = LanguageIdentifier.link(
                 new LuminaraLanguageIdentifier(),
                 new ZentariLanguageIdentifier()

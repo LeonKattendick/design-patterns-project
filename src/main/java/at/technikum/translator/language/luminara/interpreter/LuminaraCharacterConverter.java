@@ -1,8 +1,8 @@
 package at.technikum.translator.language.luminara.interpreter;
 
-import at.technikum.translator.language.LanguageInterpreter;
+import at.technikum.translator.language.LanguageConverter;
 
-public class LuminaraCharacterInterpreter extends LanguageInterpreter {
+public class LuminaraCharacterConverter extends LanguageConverter {
 
     @Override
     protected String encodeCurrent(String message) {

@@ -1,12 +1,12 @@
 package at.technikum.translator.language;
 
-public abstract class LanguageInterpreter {
+public abstract class LanguageConverter {
 
-    private LanguageInterpreter next;
+    private LanguageConverter next;
 
-    public static LanguageInterpreter link(LanguageInterpreter first, LanguageInterpreter... chain) {
-        LanguageInterpreter head = first;
-        for (LanguageInterpreter nextInChain : chain) {
+    public static LanguageConverter link(LanguageConverter first, LanguageConverter... chain) {
+        LanguageConverter head = first;
+        for (LanguageConverter nextInChain : chain) {
             head.next = nextInChain;
             head = nextInChain;
         }

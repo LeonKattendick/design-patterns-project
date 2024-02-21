@@ -1,26 +1,26 @@
 package at.technikum.translator.language.zentari;
 
-import at.technikum.translator.language.LanguageInterpreter;
+import at.technikum.translator.language.LanguageConverter;
 import at.technikum.translator.language.TranslationStrategy;
-import at.technikum.translator.language.zentari.interpreter.ZentariCharacterInterpreter;
+import at.technikum.translator.language.zentari.interpreter.ZentariCharacterConverter;
 
 public class ZentariStrategy implements TranslationStrategy {
 
-    private final LanguageInterpreter interpreter;
+    private final LanguageConverter converter;
 
     public ZentariStrategy() {
-        this.interpreter = LanguageInterpreter.link(
-                new ZentariCharacterInterpreter()
+        this.converter = LanguageConverter.link(
+                new ZentariCharacterConverter()
         );
     }
 
     @Override
     public String encode(String message) {
-        return interpreter.encode(message);
+        return converter.encode(message);
     }
 
     @Override
     public String decode(String message) {
-        return interpreter.decode(message);
+        return converter.decode(message);
     }
 }
