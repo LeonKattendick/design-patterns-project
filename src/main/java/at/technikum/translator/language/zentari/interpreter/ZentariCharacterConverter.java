@@ -9,20 +9,20 @@ import java.util.stream.Collectors;
 
 public class ZentariCharacterConverter extends LanguageConverter {
 
-    private static final Map<String, String> ALPHABET_MAP_ENCODED;
-    private static final Map<String, String> ALPHABET_MAP_DECODED;
+    public static final Map<String, String> ALPHABET_MAP_ENCODED;
+    public static final Map<String, String> ALPHABET_MAP_DECODED;
 
     static {
         Map<String, String> aMap = new HashMap<>();
-        aMap.put("A", "≙Ω");
-        aMap.put("B", "≙∑");
-        aMap.put("C", "≙Φ");
-        aMap.put("D", "≙Ψ");
-        aMap.put("E", "≙Δ");
-        aMap.put("F", "≙∏");
-        aMap.put("G", "≙Λ");
-        aMap.put("H", "≙Γ");
-        aMap.put("I", "≙Ξ");
+        aMap.put("A", "≙/");
+        aMap.put("B", "≙∦");
+        aMap.put("C", "≙±");
+        aMap.put("D", "≙⟂");
+        aMap.put("E", "≙ẍ");
+        aMap.put("F", "≙∢");
+        aMap.put("G", "≙∅");
+        aMap.put("H", "≙⇎");
+        aMap.put("I", "≙?");
         aMap.put("J", "≙∰");
         aMap.put("K", "≙∵");
         aMap.put("L", "≙∴");
@@ -33,7 +33,7 @@ public class ZentariCharacterConverter extends LanguageConverter {
         aMap.put("Q", "≙≲");
         aMap.put("R", "≙⋙");
         aMap.put("S", "≙⋘");
-        aMap.put("T", "≙ℇ");
+        aMap.put("T", "≙∱");
         aMap.put("U", "≙Q");
         aMap.put("V", "≙∳");
         aMap.put("W", "≙∀");
@@ -43,17 +43,16 @@ public class ZentariCharacterConverter extends LanguageConverter {
         aMap.put("Ä", "≙≠");
         aMap.put("Ö", "≙≇");
         aMap.put("Ü", "≙≢");
-        aMap.put("ß", "≙⋅");
 
-        aMap.put("a", "⊽Ω");
-        aMap.put("b", "⊽∑");
-        aMap.put("c", "⊽Φ");
-        aMap.put("d", "⊽ψ");
-        aMap.put("e", "⊽Δ");
-        aMap.put("f", "⊽∏");
-        aMap.put("g", "⊽Λ");
-        aMap.put("h", "⊽Γ");
-        aMap.put("i", "⊽Ξ");
+        aMap.put("a", "⊽/");
+        aMap.put("b", "⊽∦");
+        aMap.put("c", "⊽±");
+        aMap.put("d", "⊽⟂");
+        aMap.put("e", "⊽ẍ");
+        aMap.put("f", "⊽∢");
+        aMap.put("g", "⊽∅");
+        aMap.put("h", "⊽⇎");
+        aMap.put("i", "⊽?");
         aMap.put("j", "⊽∰");
         aMap.put("k", "⊽∵");
         aMap.put("l", "⊽∴");
@@ -64,7 +63,7 @@ public class ZentariCharacterConverter extends LanguageConverter {
         aMap.put("q", "⊽≲");
         aMap.put("r", "⊽⋙");
         aMap.put("s", "⊽⋘");
-        aMap.put("t", "⊽ℇ");
+        aMap.put("t", "⊽∱");
         aMap.put("u", "⊽q");
         aMap.put("v", "⊽∳");
         aMap.put("w", "⊽∀");
@@ -74,6 +73,7 @@ public class ZentariCharacterConverter extends LanguageConverter {
         aMap.put("ä", "⊽≠");
         aMap.put("ö", "⊽≇");
         aMap.put("ü", "⊽≢");
+
         aMap.put("ß", "⊽⋅");
 
         ALPHABET_MAP_ENCODED = Collections.unmodifiableMap(aMap);
