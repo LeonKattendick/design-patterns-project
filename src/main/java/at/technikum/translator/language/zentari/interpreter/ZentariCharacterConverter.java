@@ -75,6 +75,9 @@ public class ZentariCharacterConverter extends LanguageConverter {
         aMap.put("ü", "⊽≢");
 
         aMap.put("ß", "⊽⋅");
+        aMap.put(".", "..");
+        aMap.put("?", "??");
+        aMap.put("!", "!!");
 
         ALPHABET_MAP_ENCODED = Collections.unmodifiableMap(aMap);
         ALPHABET_MAP_DECODED = aMap.entrySet()

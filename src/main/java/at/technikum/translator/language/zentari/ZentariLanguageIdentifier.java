@@ -12,12 +12,17 @@ public class ZentariLanguageIdentifier extends LanguageIdentifier {
     protected AlienLanguage identifyCurrent(String message) {
 
         String alienMessage = message.replace(" ", "");
-        for (int i = 0; i < alienMessage.length(); i += 2) {
-            String alienPair = alienMessage.substring(i, i + 2);
-            if (!ZentariCharacterConverter.ALPHABET_MAP_DECODED.containsKey(alienPair)) {
-                return null;
+
+        if (alienMessage.length() % 2 == 0) {
+            for (int i = 0; i < alienMessage.length(); i += 2) {
+                String alienPair = alienMessage.substring(i, i + 2);
+                if (!ZentariCharacterConverter.ALPHABET_MAP_DECODED.containsKey(alienPair)) {
+                    return null;
+                }
             }
+            return AlienLanguage.ZENTARI;
         }
-        return AlienLanguage.ZENTARI;
+        return null;
+
     }
 }
