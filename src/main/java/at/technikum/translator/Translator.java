@@ -39,8 +39,14 @@ public class Translator {
                 input = scanner.nextLine();
                 System.out.println("... Übersetze Ergebnis ...");
 
-                String decoded = TranslationFacade.getInstance().decodeMessage(input);
-                System.out.println("Resultat: " + decoded);
+                try {
+                    String decoded = TranslationFacade.getInstance().decodeMessage(input);
+                    System.out.println();
+                    System.out.println("Resultat: " + decoded);
+                    System.out.println();
+                } catch (UnsupportedOperationException e) {
+                    System.out.println("Die ursprüngliche Sprache konnte nicht eindeutig identifiziert werden.");
+                }
             } else {
                 break;
             }

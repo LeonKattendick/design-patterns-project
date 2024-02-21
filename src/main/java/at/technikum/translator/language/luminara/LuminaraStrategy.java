@@ -2,25 +2,33 @@ package at.technikum.translator.language.luminara;
 
 import at.technikum.translator.language.LanguageConverter;
 import at.technikum.translator.language.TranslationStrategy;
+import at.technikum.translator.language.luminara.interpreter.LuminaraCaesarCipherConverter;
 import at.technikum.translator.language.luminara.interpreter.LuminaraCharacterConverter;
 
 public class LuminaraStrategy implements TranslationStrategy {
 
-    private final LanguageConverter converter;
+    private final LanguageConverter encodeConverter;
+
+    private final LanguageConverter decodeConverter;
 
     public LuminaraStrategy() {
-        this.converter = LanguageConverter.link(
+        this.encodeConverter = LanguageConverter.link(
+                new LuminaraCaesarCipherConverter(),
                 new LuminaraCharacterConverter()
+        );
+        this.decodeConverter = LanguageConverter.link(
+                new LuminaraCharacterConverter(),
+                new LuminaraCaesarCipherConverter()
         );
     }
 
     @Override
     public String encode(String message) {
-        return converter.encode(message);
+        return encodeConverter.encode(message);
     }
 
     @Override
     public String decode(String message) {
-        return converter.decode(message);
+        return decodeConverter.decode(message);
     }
 }
