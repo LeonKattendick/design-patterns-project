@@ -1,5 +1,7 @@
 # design-patterns-project
 
+## Team members
+Leon Kattendick, Tarek Abouzadi, Dominik Dorr
 # Idea
 An application which can handle mulitple alien languages and can encode and decode them. The target language for decoding 
 is always german. This application helps the human race to communicate with other species and yet enhance interplanetary communication.
@@ -23,7 +25,7 @@ Zentari and Luminara and try to find out which one fits for decoding. On the oth
 could have several steps. (sample: Luminara)
 
 ## Feedback
-We definitly thing that those patterns are pretty complementary but are still working seamlessly together. We also tried to pick some
+We definitly think that those patterns are pretty complementary but are still working seamlessly together. We also tried to pick some
 based on the domain of the application which definitly had a huge impact on our decisions. To sum it up - it was a fun exercise where
 we were able to put our heads together and came up with a pretty nice solution.
 
