@@ -1,7 +1,7 @@
 # design-patterns-project
 
 ## Team members
-Leon Kattendick, Tarek Abouzadi, Dominik Dorr
+Leon Kattendick, Tarek Abouzaid, Dominik Dorr
 
 # Idea
 An application which can handle mulitple alien languages and can encode and decode them. The target language for decoding 
