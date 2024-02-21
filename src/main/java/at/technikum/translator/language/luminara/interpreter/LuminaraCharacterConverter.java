@@ -8,71 +8,71 @@ import java.util.stream.Collectors;
 
 public class LuminaraCharacterConverter extends LanguageConverter {
 
-    private static Map<String, String> encodeMap = new HashMap<>();
-    private static Map<String, String> decodeMap;
+    private static final Map<String, String> ENCODE_MAP = new HashMap<>();
+    private static Map<String, String> DECODE_MAP;
 
     static {
-        encodeMap.put("a", "α");
-        encodeMap.put("A", "Α");
-        encodeMap.put("b", "β");
-        encodeMap.put("B", "Β");
-        encodeMap.put("c", "χ");
-        encodeMap.put("C", "Χ");
-        encodeMap.put("d", "δ");
-        encodeMap.put("D", "Δ");
-        encodeMap.put("e", "ε");
-        encodeMap.put("E", "Ε");
-        encodeMap.put("f", "ψ");
-        encodeMap.put("F", "Ψ");
-        encodeMap.put("g", "ω");
-        encodeMap.put("G", "Ω");
-        encodeMap.put("h", "η");
-        encodeMap.put("H", "Η");
-        encodeMap.put("i", "ι");
-        encodeMap.put("I", "Ι");
-        encodeMap.put("j", "j");
-        encodeMap.put("J", "J");
-        encodeMap.put("k", "κ");
-        encodeMap.put("K", "Κ");
-        encodeMap.put("l", "λ");
-        encodeMap.put("L", "Λ");
-        encodeMap.put("m", "μ");
-        encodeMap.put("M", "Μ");
-        encodeMap.put("n", "ν");
-        encodeMap.put("N", "Ν");
-        encodeMap.put("o", "θ");
-        encodeMap.put("O", "Θ");
-        encodeMap.put("p", "ρ");
-        encodeMap.put("P", "Ρ");
-        encodeMap.put("q", "q");
-        encodeMap.put("Q", "Q");
-        encodeMap.put("r", "σ");
-        encodeMap.put("R", "Σ");
-        encodeMap.put("s", "ς");
-        encodeMap.put("S", "S");
-        encodeMap.put("t", "τ");
-        encodeMap.put("T", "Τ");
-        encodeMap.put("u", "φ");
-        encodeMap.put("U", "Φ");
-        encodeMap.put("v", "v");
-        encodeMap.put("V", "V");
-        encodeMap.put("w", "π");
-        encodeMap.put("W", "Π");
-        encodeMap.put("x", "ξ");
-        encodeMap.put("X", "Ξ");
-        encodeMap.put("y", "γ");
-        encodeMap.put("Y", "Γ");
-        encodeMap.put("z", "ζ");
-        encodeMap.put("Z", "Ζ");
+        ENCODE_MAP.put("a", "α");
+        ENCODE_MAP.put("A", "Α");
+        ENCODE_MAP.put("b", "β");
+        ENCODE_MAP.put("B", "Β");
+        ENCODE_MAP.put("c", "χ");
+        ENCODE_MAP.put("C", "Χ");
+        ENCODE_MAP.put("d", "δ");
+        ENCODE_MAP.put("D", "Δ");
+        ENCODE_MAP.put("e", "ε");
+        ENCODE_MAP.put("E", "Ε");
+        ENCODE_MAP.put("f", "ψ");
+        ENCODE_MAP.put("F", "Ψ");
+        ENCODE_MAP.put("g", "ω");
+        ENCODE_MAP.put("G", "Ω");
+        ENCODE_MAP.put("h", "η");
+        ENCODE_MAP.put("H", "Η");
+        ENCODE_MAP.put("i", "ι");
+        ENCODE_MAP.put("I", "Ι");
+        ENCODE_MAP.put("j", "j");
+        ENCODE_MAP.put("J", "J");
+        ENCODE_MAP.put("k", "κ");
+        ENCODE_MAP.put("K", "Κ");
+        ENCODE_MAP.put("l", "λ");
+        ENCODE_MAP.put("L", "Λ");
+        ENCODE_MAP.put("m", "μ");
+        ENCODE_MAP.put("M", "Μ");
+        ENCODE_MAP.put("n", "ν");
+        ENCODE_MAP.put("N", "Ν");
+        ENCODE_MAP.put("o", "θ");
+        ENCODE_MAP.put("O", "Θ");
+        ENCODE_MAP.put("p", "ρ");
+        ENCODE_MAP.put("P", "Ρ");
+        ENCODE_MAP.put("q", "q");
+        ENCODE_MAP.put("Q", "Q");
+        ENCODE_MAP.put("r", "σ");
+        ENCODE_MAP.put("R", "Σ");
+        ENCODE_MAP.put("s", "ς");
+        ENCODE_MAP.put("S", "S");
+        ENCODE_MAP.put("t", "τ");
+        ENCODE_MAP.put("T", "Τ");
+        ENCODE_MAP.put("u", "φ");
+        ENCODE_MAP.put("U", "Φ");
+        ENCODE_MAP.put("v", "v");
+        ENCODE_MAP.put("V", "V");
+        ENCODE_MAP.put("w", "π");
+        ENCODE_MAP.put("W", "Π");
+        ENCODE_MAP.put("x", "ξ");
+        ENCODE_MAP.put("X", "Ξ");
+        ENCODE_MAP.put("y", "γ");
+        ENCODE_MAP.put("Y", "Γ");
+        ENCODE_MAP.put("z", "ζ");
+        ENCODE_MAP.put("Z", "Ζ");
 
-        decodeMap = encodeMap.entrySet()
+        DECODE_MAP = ENCODE_MAP.entrySet()
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
     @Override
     protected String encodeCurrent(String message) {
-        for (Map.Entry<String, String> entry : encodeMap.entrySet()) {
+        for (Map.Entry<String, String> entry : ENCODE_MAP.entrySet()) {
             message = message.replace(entry.getKey(), entry.getValue());
         }
         return message;
@@ -80,7 +80,7 @@ public class LuminaraCharacterConverter extends LanguageConverter {
 
     @Override
     protected String decodeCurrent(String message) {
-        for (Map.Entry<String, String> entry : decodeMap.entrySet()) {
+        for (Map.Entry<String, String> entry : DECODE_MAP.entrySet()) {
             message = message.replace(entry.getKey(), entry.getValue());
         }
         return message;

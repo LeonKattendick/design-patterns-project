@@ -8,24 +8,27 @@ public class LuminaraCaesarCipherConverter extends LanguageConverter {
 
     @Override
     protected String encodeCurrent(String message) {
-        char[] chars = new char[message.length()];
-
-        for (int i = 0; i < message.toCharArray().length; i++) {
-            int deltaPos = message.charAt(i) - 'a';
-            int newPos = (deltaPos + OFFSET) % 26;
-            chars[i] = (char) ('a' + newPos);
-        }
-        return new String(chars);
+        return cipher(message, OFFSET);
     }
 
     @Override
     protected String decodeCurrent(String message) {
+        return cipher(message, 26 - (OFFSET % 26));
+    }
+
+    private String cipher(String message, int offset) {
         char[] chars = new char[message.length()];
 
         for (int i = 0; i < message.toCharArray().length; i++) {
-            int deltaPos = message.charAt(i) - 'a';
-            int newPos = (deltaPos - OFFSET + 26) % 26;
-            chars[i] = (char) ('a' + newPos);
+            char charAt = message.charAt(i);
+            if (charAt != ' ') {
+                char startChar = charAt >= 'a' ? 'a' : 'A';
+                int deltaPos = charAt - startChar;
+                int newPos = (deltaPos + offset) % 26;
+                chars[i] = (char) (startChar + newPos);
+            } else {
+                chars[i] = ' ';
+            }
         }
         return new String(chars);
     }
