@@ -2,6 +2,7 @@
 
 ## Team members
 Leon Kattendick, Tarek Abouzadi, Dominik Dorr
+
 # Idea
 An application which can handle mulitple alien languages and can encode and decode them. The target language for decoding 
 is always german. This application helps the human race to communicate with other species and yet enhance interplanetary communication.
