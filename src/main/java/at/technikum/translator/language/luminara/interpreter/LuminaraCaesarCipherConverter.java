@@ -21,15 +21,19 @@ public class LuminaraCaesarCipherConverter extends LanguageConverter {
 
         for (int i = 0; i < message.toCharArray().length; i++) {
             char charAt = message.charAt(i);
-            if (charAt != ' ') {
+            if (isBetween(charAt, 'a', 'z') || isBetween(charAt, 'A', 'Z')) {
                 char startChar = charAt >= 'a' ? 'a' : 'A';
                 int deltaPos = charAt - startChar;
                 int newPos = (deltaPos + offset) % 26;
                 chars[i] = (char) (startChar + newPos);
             } else {
-                chars[i] = ' ';
+                chars[i] = charAt;
             }
         }
         return new String(chars);
+    }
+
+    private boolean isBetween(char c, char a, char z) {
+        return c >= a && c <= z;
     }
 }
