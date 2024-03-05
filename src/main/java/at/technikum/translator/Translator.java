@@ -11,11 +11,11 @@ public class Translator {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Geben Sie eine Aktion ein (Encode/Decode): ");
+            System.out.println("Please select your option (Encode/Decode): ");
             String input = scanner.nextLine().toLowerCase();
 
             if ("encode".contains(input)) {
-                System.out.println("Geben Sie die Sprache an, in welche übersetzt werden soll (Zentari/Luminara): ");
+                System.out.println("Please enter the language, that should be translated (Zentari/Luminara): ");
                 input = scanner.nextLine().toLowerCase();
 
                 String finalInput = input;
@@ -25,33 +25,33 @@ public class Translator {
                         .orElse(null);
 
                 if (language != null) {
-                    System.out.println("Geben Sie den zu übersetzenden Text ein: ");
+                    System.out.println("Please enter the text: ");
                     input = scanner.nextLine();
-                    System.out.println("... Übersetze Ergebnis ...");
+                    System.out.println("... Translating result ...");
 
                     String decoded = TranslationFacade.getInstance().encodeMessage(input, language);
                     System.out.println();
-                    System.out.println("Resultat: " + decoded);
+                    System.out.println("Result: " + decoded);
                     System.out.println();
                 }
             } else if ("decode".contains(input)) {
-                System.out.println("Geben Sie den zu übersetzenden Text ein: ");
+                System.out.println("Please enter the text: ");
                 input = scanner.nextLine();
-                System.out.println("... Übersetze Ergebnis ...");
+                System.out.println("... Translating result ...");
 
                 try {
                     String decoded = TranslationFacade.getInstance().decodeMessage(input);
                     System.out.println();
-                    System.out.println("Resultat: " + decoded);
+                    System.out.println("Result: " + decoded);
                     System.out.println();
                 } catch (UnsupportedOperationException e) {
-                    System.out.println("Die ursprüngliche Sprache konnte nicht eindeutig identifiziert werden.");
+                    System.out.println("The original language could not be identified.");
                 }
             } else {
                 break;
             }
         }
-        System.out.println("... Translator beendet ...");
+        System.out.println("... Translator stopped ...");
         scanner.close();
     }
 }
