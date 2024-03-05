@@ -12,6 +12,9 @@ public class TranslationFacade {
 
     private static TranslationFacade instance;
 
+    private TranslationFacade() {
+    }
+
     public String encodeMessage(String message, AlienLanguage language) {
         TranslationStrategy strategy = getTranslationStrategy(language);
         return strategy.encode(message);
@@ -30,13 +33,10 @@ public class TranslationFacade {
     }
 
     private static TranslationStrategy getTranslationStrategy(AlienLanguage language) {
-        TranslationStrategy strategy;
-        switch (language) {
-            case ZENTARI -> strategy = new ZentariStrategy();
-            case LUMINARA -> strategy = new LuminaraStrategy();
-            default -> throw new UnsupportedOperationException("Not supported");
-        }
-        return strategy;
+        return switch (language) {
+            case ZENTARI -> new ZentariStrategy();
+            case LUMINARA -> new LuminaraStrategy();
+        };
     }
 
     public static TranslationFacade getInstance() {
